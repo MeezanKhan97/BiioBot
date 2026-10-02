@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BioBot — Biomass & Sustainable Bioenergy Assistant</title>
+<meta name="description" content="An educational chatbot on traditional biomass fuels and modern sustainable bioenergy, built as an Indian Knowledge Systems (IKS) project.">
+
+<!-- Google Fonts: Fraunces (organic display serif) + Work Sans (clean body text) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ TOP NAVIGATION ============ -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="#home" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <!-- simple leaf/sprout mark, inline SVG so no image files are needed -->
+        <svg viewBox="0 0 40 40" width="30" height="30">
+          <path d="M20 36 C20 24 20 14 20 4" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <path d="M20 10 C12 8 6 12 6 20 C15 20 20 16 20 10 Z" fill="currentColor"/>
+          <path d="M20 18 C28 16 34 20 34 28 C25 28 20 24 20 18 Z" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-name">BioBot</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul id="navList">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#chatbot">Chatbot</a></li>
+        <li><a href="#explorer">Biomass Explorer</a></li>
+        <li><a href="#bioenergy">Bioenergy</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#about">About Project</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HOME / HERO ============ -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow-plain">An Indian Knowledge Systems project</p>
+      <h1 class="hero-title">Biomass has always<br>fuelled India. <em>BioBot</em><br>helps you understand it.</h1>
+      <p class="hero-sub">Your Biomass &amp; Sustainable Bioenergy Assistant</p>
+      <p class="hero-intro">
+        From firewood and cow-dung cakes to biogas plants and improved cookstoves —
+        BioBot is a small offline chatbot that explains how traditional biomass fuels work,
+        why they matter, where they fall short, and how modern bioenergy builds on the
+        same local resources more sustainably.
+      </p>
+      <div class="hero-actions">
+        <a href="#chatbot" class="btn btn-primary">Start chatting with BioBot</a>
+        <a href="#explorer" class="btn btn-ghost">Explore biomass types</a>
+      </div>
+    </div>
+
+    <div class="hero-flow" aria-hidden="true">
+      <p class="hero-flow-label">One material, two paths</p>
+      <div class="flow-track">
+        <div class="flow-node">
+          <span class="flow-icon">🌾</span>
+          <span class="flow-text">Biomass</span>
+        </div>
+        <div class="flow-node">
+          <span class="flow-icon">🔥</span>
+          <span class="flow-text">Traditional use</span>
+        </div>
+        <div class="flow-node">
+          <span class="flow-icon">⚙️</span>
+          <span class="flow-text">Processing</span>
+        </div>
+        <div class="flow-node flow-node-end">
+          <span class="flow-icon">💡</span>
+          <span class="flow-text">Modern bioenergy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHATBOT SECTION ============ -->
+  <section id="chatbot" class="chatbot-section">
+    <div class="section-head">
+      <h2>Ask BioBot</h2>
+      <p>Type a question, or tap a suggestion to get started.</p>
+    </div>
+
+    <div class="chat-shell">
+      <div class="chat-window" id="chatWindow" role="log" aria-live="polite">
+        <!-- Messages are injected here by script.js. Welcome message added on load. -->
+      </div>
+
+      <div class="chat-suggestions" id="chatSuggestions" aria-label="Suggested questions">
+        <!-- Quick question buttons injected by script.js -->
+      </div>
+
+      <form class="chat-input-row" id="chatForm">
+        <label for="chatInput" class="sr-only">Ask BioBot a question</label>
+        <input type="text" id="chatInput" autocomplete="off" placeholder="Ask about biomass, biogas, firewood, cow dung...">
+        <button type="submit" class="btn btn-primary chat-send">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ BIOMASS EXPLORER ============ -->
+  <section id="explorer" class="explorer-section">
+    <div class="section-head">
+      <h2>Biomass Explorer</h2>
+      <p>Select a material to see its traditional use, modern potential, and how to manage it sustainably.</p>
+    </div>
+
+    <div class="explorer-grid" id="explorerGrid">
+      <!-- Explorer item buttons injected by script.js -->
+    </div>
+
+    <div class="explorer-detail" id="explorerDetail" aria-live="polite">
+      <p class="explorer-placeholder">Select a material above to see its full profile.</p>
+    </div>
+  </section>
+
+  <!-- ============ BIOMASS → ENERGY VISUALIZATION ============ -->
+  <section id="bioenergy" class="pathway-section">
+    <div class="section-head">
+      <h2>From Biomass to Energy</h2>
+      <p>The same starting material can follow different pathways depending on what it is and local conditions.</p>
+    </div>
+
+    <div class="pathway-diagram">
+      <div class="pathway-col">
+        <div class="pathway-step step-start">Biomass / Organic Waste</div>
+        <div class="pathway-connector"></div>
+        <div class="pathway-step">Collection</div>
+        <div class="pathway-connector"></div>
+        <div class="pathway-step">Processing</div>
+        <div class="pathway-connector"></div>
+        <div class="pathway-step step-branch">
+          <span>Biogas</span><span>Biomass fuel (pellets / briquettes)</span><span>Other useful products (compost, etc.)</span>
+        </div>
+        <div class="pathway-connector"></div>
+        <div class="pathway-step step-end">Energy / Agricultural use</div>
+      </div>
+    </div>
+    <p class="pathway-note">
+      Note: not every type of biomass should automatically become fuel — dry leaves may be better
+      composted, wet organic waste often suits biogas, and seasoned wood may suit direct or improved
+      combustion. The right pathway depends on the material and local conditions.
+    </p>
+
+    <div class="bioenergy-cards">
+      <article class="info-card">
+        <h3>Biogas</h3>
+        <p>Produced by anaerobic digestion of cow dung, kitchen waste and other organic matter in a biogas plant, yielding gas for cooking/lighting and digestate as manure.</p>
+      </article>
+      <article class="info-card">
+        <h3>Biomass pellets</h3>
+        <p>Agricultural residue or sawdust compressed into dense, uniform pellets that burn more efficiently and are easier to store and transport than loose residue.</p>
+      </article>
+      <article class="info-card">
+        <h3>Biomass briquettes</h3>
+        <p>Similar to pellets but larger and blockier, briquettes are made by compacting crop residue or wood waste for use in furnaces, boilers or improved stoves.</p>
+      </article>
+      <article class="info-card">
+        <h3>Improved combustion</h3>
+        <p>Improved cookstoves and controlled-combustion devices burn traditional fuels like firewood more completely, cutting smoke and fuel use compared to open fires.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section id="quiz" class="quiz-section">
+    <div class="section-head">
+      <h2>Test Your Knowledge</h2>
+      <p>Five quick questions on biomass and bioenergy.</p>
+    </div>
+
+    <div class="quiz-shell" id="quizShell">
+      <!-- Quiz UI injected/managed by script.js -->
+    </div>
+  </section>
+
+  <!-- ============ AWARENESS SECTION ============ -->
+  <section id="awareness" class="awareness-section">
+    <div class="section-head">
+      <h2>Use Biomass Responsibly</h2>
+      <p>Small changes in how biomass is used make a real difference.</p>
+    </div>
+
+    <ul class="awareness-list">
+      <li><strong>Avoid open burning.</strong> Burning crop residue or waste in the open releases heavy smoke and wastes material that could be put to better use.</li>
+      <li><strong>Reduce smoke exposure.</strong> Better ventilation and improved stoves cut indoor air pollution from cooking fires.</li>
+      <li><strong>Use fuel efficiently.</strong> Right-sized fires, dry fuel and efficient stoves mean less biomass burned for the same result.</li>
+      <li><strong>Source responsibly.</strong> Use wood and residue from sustainable, permitted sources rather than uncontrolled cutting or clearing.</li>
+      <li><strong>Think waste-to-resource.</strong> Organic waste and residue can often become biogas, compost or fuel instead of being discarded or burned.</li>
+    </ul>
+  </section>
+
+  <!-- ============ ABOUT PROJECT / IKS ============ -->
+  <section id="about" class="about-section">
+    <div class="section-head">
+      <h2>About This Project</h2>
+      <p>Why BioBot exists, and how it connects to Indian Knowledge Systems.</p>
+    </div>
+
+    <div class="about-grid">
+      <article class="about-block">
+        <h3>The problem</h3>
+        <p>Traditional biomass remains useful because it is often locally available and affordable. But inefficient combustion, open burning, smoke and poor management of these fuels can create real environmental and health concerns.</p>
+      </article>
+      <article class="about-block">
+        <h3>The IKS connection</h3>
+        <p>This project draws on Indian traditional knowledge and practices around using locally available biological resources — firewood, cow dung, crop residue — and connects that knowledge with present-day sustainable bioenergy concepts, without treating either as a complete replacement for the other.</p>
+      </article>
+      <article class="about-block">
+        <h3>The modern solution</h3>
+        <p>BioBot is a digital awareness and educational tool. It doesn't replace traditional practice or modern engineering — it helps people understand both, side by side, in plain language.</p>
+      </article>
+      <article class="about-block">
+        <h3>Why it's useful</h3>
+        <p>Students and communities can use BioBot to understand biomass basics, compare traditional and modern approaches, and pick up practical, responsible fuel-management habits.</p>
+      </article>
+    </div>
+
+    <p class="about-disclaimer">
+      This project presents traditional practices and modern technologies as distinct, complementary approaches —
+      it does not claim traditional methods are obsolete, nor that every material should be industrially processed.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>BioBot — a college mini-project on Biomass &amp; Sustainable Bioenergy, connecting Indian Knowledge Systems with present-day practice.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
